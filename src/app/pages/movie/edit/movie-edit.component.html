@@ -1,0 +1,69 @@
+<dx-popup
+  [width]="500"
+  [height]="460"
+  [showTitle]="true"
+  [title]="isCreateMode() ? '영화 생성' : '영화 변경'"
+  [dragEnabled]="false"
+  [closeOnOutsideClick]="true"
+  [showCloseButton]="true"
+  container=".dx-viewport"
+  [(visible)]="popupVisible"
+>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="before"
+    [options]="{text: '저장', onClick: save}"
+  >
+  </dxi-toolbar-item>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="before"
+    [options]="{text: '취소', onClick: cancel}"
+  >
+  </dxi-toolbar-item>
+  <div class="popup-edit-form" *dxTemplate="let data of 'content'">
+    <dx-validation-group>
+      <div class="dx-fieldset">
+        <div class="dx-fieldset-header">영화등록</div>
+
+        <div class="dx-field" *ngIf="isUpdateMode()">
+          <div class="dx-field-label">ID</div>
+          <div class="dx-field-label-static">{{movie.id}}</div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">제목</div>
+          <dx-text-box class="dx-field-value" [(value)]="movie.subject">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="이름을 입력하세요."></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">감독</div>
+          <dx-text-box class="dx-field-value" [(value)]="movie.director">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="이름을 입력하세요."></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">개봉일</div>
+          <dx-date-box class="dx-field-value" [(value)]="movie.date"
+                       displayFormat="yyyy-MM-dd" invalidDateMessage="날짜를 올바른 형식으로 입력하세요: yyyy-MM-dd">
+            <dx-validator>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+
+        <dx-validation-summary></dx-validation-summary>
+
+      </div>
+    </dx-validation-group>
+  </div>
+
+</dx-popup>

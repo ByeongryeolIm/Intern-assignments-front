@@ -1,0 +1,59 @@
+<h2 class="content-block">영화 목록</h2>
+
+<div class="list-container">
+  <div class="crud-buttons">
+    <dx-text-box [(value)]="filter" class="search-bar" placeholder="제목으로 조회" (onEnterKey)="search()">
+    </dx-text-box>
+    <dx-button
+      class="crud-button"
+      text="조회"
+      (onClick)="search()"
+    ></dx-button>
+    <dx-button
+      class="crud-button"
+      text="생성"
+      (onClick)="create()"
+    ></dx-button>
+    <dx-button
+      class="crud-button"
+      text="변경"
+      [disabled]="!getSelectedMovieId()"
+      (onClick)="update()"
+    ></dx-button>
+    <dx-button
+      class="crud-button"
+      text="삭제"
+      [disabled]="!getSelectedMovieId()"
+      (onClick)="delete()"
+    ></dx-button>
+    <dx-button
+    class="dx-button"
+    text="예매"
+    [disabled]="!getSelectedMovieId()"
+    >
+    </dx-button>
+  </div>
+
+  <dx-data-grid
+  [dataSource]="movies"
+  [showBorders]="true"
+  [remoteOperations]="true"
+  [hoverStateEnabled]="true"
+  [selectedRowKeys]="[]"
+  >
+  <dxi-column dataField="id" dataType="number" caption="ID" [width]="100"></dxi-column>
+  <dxi-column dataField="subject" dataType="string" caption="제목"></dxi-column>
+  <dxi-column dataField="director" dataType="string" caption="감독" [width]="100"></dxi-column>
+  <dxi-column dataField="date" dataType="date" caption="개봉일" [format]="{ type: 'yyyy-MM-dd' }"></dxi-column>
+  <dxo-selection mode="single"></dxo-selection>
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[5, 10, 20]"
+    [showInfo]="true"
+    [visible]="true"
+  ></dxo-pager>
+  </dx-data-grid>
+</div>
+
+<app-movie-edit-popup (onSaved)="onSaved($event)"></app-movie-edit-popup>
