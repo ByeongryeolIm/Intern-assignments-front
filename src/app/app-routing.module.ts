@@ -15,6 +15,7 @@ import {EmployeeComponent} from "./pages/employee/employee.component";
 import {CommonModule} from "@angular/common";
 import {EmployeeEditComponent} from "./pages/employee/edit/employee-edit.component";
 import {MovieComponent} from "./pages/movie/movie.component";
+import {MovieEditComponent} from "./pages/movie/edit/movie-edit.component";
 
 const routes: Routes = [
   {
@@ -77,7 +78,9 @@ const routes: Routes = [
     ProfileComponent,
     TasksComponent,
     EmployeeComponent,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    MovieComponent,
+    MovieEditComponent
   ]
 })
 export class AppRoutingModule { }

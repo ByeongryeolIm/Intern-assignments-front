@@ -8,7 +8,6 @@ import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import {MovieComponent} from "./pages/movie/movie.component";
 import {
   DxButtonModule,
   DxDataGridModule,
@@ -17,13 +16,10 @@ import {
   DxTextBoxModule, DxValidationGroupModule, DxValidationSummaryModule,
   DxValidatorModule
 } from "devextreme-angular";
-import {MovieEditComponent} from "./pages/movie/edit/movie-edit.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MovieComponent,
-    MovieEditComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
