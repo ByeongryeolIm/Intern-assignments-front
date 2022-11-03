@@ -64,7 +64,7 @@ export class EmployeeEditComponent {
     if (!result.isValid) {
       return;
     }
-
+    console.log("사원정보:"+this.employee);
     this.popupVisible = false;
     if (this.isCreateMode()) {
       this.employeeService.create(this.employee).subscribe({

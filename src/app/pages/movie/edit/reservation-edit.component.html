@@ -1,0 +1,73 @@
+<dx-popup
+  [width]="500"
+  [height]="460"
+  [showTitle]="true"
+  [title]="'영화 예매'"
+  [dragEnabled]="false"
+  [closeOnOutsideClick]="true"
+  [showCloseButton]="true"
+  container=".dx-viewport"
+  [(visible)]="popupVisible"
+>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="before"
+    [options]="{text: '저장', onClick: save}"
+  >
+  </dxi-toolbar-item>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="before"
+    [options]="{text: '취소', onClick: cancel}"
+  >
+  </dxi-toolbar-item>
+  <div class="popup-edit-form" *dxTemplate="let data of 'content'">
+    <dx-validation-group>
+      <div class="dx-fieldset">
+        <div class="dx-fieldset-header">영화 예매</div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">영화 제목</div>
+          <div class="dx-field-label-static">{{movie.subject}}</div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">영화 ID</div>
+          <dx-text-box class="dx-field-value" name="movie_id" value="{{movie.id}}" [readOnly]="true">
+          </dx-text-box>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">영화관</div>
+          <dx-select-box class="dx-field-value"
+                         name="cinema"
+                         [items]="theaters" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.cinema"
+          ></dx-select-box>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">좌석</div>
+          <dx-select-box class="dx-field-value"
+                         name="seat"
+                         [items]="seats" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.seat"
+          ></dx-select-box>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">관람날짜</div>
+          <dx-date-box class="dx-field-value" name="viewDate"
+                       displayFormat="yyyy-MM-dd" invalidDateMessage="날짜를 올바른 형식으로 입력하세요: yyyy-MM-dd" [(value)]="reservation.viewDate">
+            <dx-validator>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+
+        <dx-validation-summary></dx-validation-summary>
+
+      </div>
+    </dx-validation-group>
+  </div>
+
+</dx-popup>

@@ -14,9 +14,7 @@ export class MovieEditComponent {
   popupVisible = false;
 
   @Output() onSaved = new EventEmitter<Movie>();
-
   @ViewChild(DxFormComponent, {static: false}) form: DxFormComponent;
-
   @ViewChild(DxValidationGroupComponent, {static: false}) validationGroup: DxValidationGroupComponent;
 
   constructor(private movieService: MovieService) {
@@ -32,7 +30,7 @@ export class MovieEditComponent {
           this.popupVisible = true;
         },
         error: (e) => {
-          notify('영화 정보를 불러오는데 오류가 발생하였습니다.', 'error', 3000);
+          notify('영화 정보를 불러오는데 오류가 발생하였습니다.', 'error', 2000);
         }
       });
     }else {
@@ -62,7 +60,6 @@ export class MovieEditComponent {
     }
 
     this.popupVisible = false;
-    console.log(this.movie);
     if (this.isCreateMode()){
       this.movieService.create(this.movie).subscribe({
         next: (v) => {
@@ -70,7 +67,6 @@ export class MovieEditComponent {
           this.onSaved.emit(v);
         },
         error: (e) => {
-          console.log(e);
           notify('영화 등록에 실패하였습니다.', 'error', 3000);
         }
       });

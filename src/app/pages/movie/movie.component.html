@@ -16,7 +16,7 @@
     ></dx-button>
     <dx-button
       class="crud-button"
-      text="변경"
+      text="수정"
       [disabled]="!getSelectedMovieId()"
       (onClick)="update()"
     ></dx-button>
@@ -29,7 +29,9 @@
     <dx-button
     class="dx-button"
     text="예매"
+    id="reserveBtn"
     [disabled]="!getSelectedMovieId()"
+    (onClick)="reserve()"
     >
     </dx-button>
   </div>
@@ -57,3 +59,5 @@
 </div>
 
 <app-movie-edit-popup (onSaved)="onSaved($event)"></app-movie-edit-popup>
+
+<app-reservation-edit-popup></app-reservation-edit-popup>

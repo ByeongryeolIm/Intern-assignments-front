@@ -8,6 +8,8 @@ import {firstValueFrom} from "rxjs";
 import {MovieEditComponent} from "./edit/movie-edit.component";
 import notify from "devextreme/ui/notify";
 import {confirm} from "devextreme/ui/dialog";
+import {Router} from "@angular/router";
+import {ReservationEditComponent} from "./edit/reservation-edit.component";
 
 @Component({
   selector: 'app-movie',
@@ -22,6 +24,7 @@ export class MovieComponent {
 
   @ViewChild(DxDataGridComponent, {static: false}) grid: DxDataGridComponent;
   @ViewChild(MovieEditComponent, {static: false}) editPopup: MovieEditComponent;
+  @ViewChild(ReservationEditComponent, {static: false}) reservePopup: ReservationEditComponent;
 
   constructor(private movieService: MovieService,
               private pageableService: PageableService) {
@@ -74,6 +77,10 @@ export class MovieComponent {
         });
       }
     });
+  }
+
+  reserve() {
+    this.reservePopup.open(this.getSelectedMovieId());
   }
 
   /** Edit Popup Events */

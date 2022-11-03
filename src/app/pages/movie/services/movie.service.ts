@@ -9,6 +9,12 @@ export interface Movie {
   director: string;
   date: string | number | Date;
 }
+export interface Reservation {
+  id: number;
+  cinema: string;
+  seat: string;
+  viewDate: string | number | Date;
+}
 
 const URL = '/dna/practice/movies';
 
@@ -37,4 +43,14 @@ export class MovieService {
   delete(id: number): Observable<Movie> {
     return this.http.delete<any>(`${URL}/${id}`);
   }
+
+  reserve(reservation: Reservation ): Observable<Reservation> {
+    return this.http.post<any>(`${URL}/reserve`, reservation);
+  }
+
+  reserveList(params: Pageable): Observable<any> {
+    return this.http.get<any>(`${URL}/reserveList`,{params: params as any});
+  }
+
+
 }

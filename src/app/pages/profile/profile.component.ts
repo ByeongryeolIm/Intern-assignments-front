@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ProfileComponent {
   employee: any;
   colCountByScreen: object;
-
+  
   constructor() {
     this.employee = {
       ID: 7,

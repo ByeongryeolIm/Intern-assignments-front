@@ -16,6 +16,8 @@ import {CommonModule} from "@angular/common";
 import {EmployeeEditComponent} from "./pages/employee/edit/employee-edit.component";
 import {MovieComponent} from "./pages/movie/movie.component";
 import {MovieEditComponent} from "./pages/movie/edit/movie-edit.component";
+import {ReservationEditComponent} from "./pages/movie/edit/reservation-edit.component";
+import {ReservationComponent} from "./pages/reservation/reservation.component";
 
 const routes: Routes = [
   {
@@ -64,6 +66,11 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
+    path: 'reservation',
+    component: ReservationComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
@@ -80,7 +87,9 @@ const routes: Routes = [
     EmployeeComponent,
     EmployeeEditComponent,
     MovieComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    ReservationEditComponent,
+    ReservationComponent
   ]
 })
 export class AppRoutingModule { }

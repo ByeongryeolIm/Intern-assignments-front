@@ -2,7 +2,7 @@
   [width]="500"
   [height]="460"
   [showTitle]="true"
-  [title]="isCreateMode() ? '영화 생성' : '영화 변경'"
+  [title]="isCreateMode() ? '영화 생성' : '영화 수정'"
   [dragEnabled]="false"
   [closeOnOutsideClick]="true"
   [showCloseButton]="true"
@@ -26,7 +26,8 @@
   <div class="popup-edit-form" *dxTemplate="let data of 'content'">
     <dx-validation-group>
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header">영화등록</div>
+        <div class="dx-fieldset-header" *ngIf="isCreateMode()">영화 등록</div>
+        <div class="dx-fieldset-header" *ngIf="isUpdateMode()">영화 변경</div>
 
         <div class="dx-field" *ngIf="isUpdateMode()">
           <div class="dx-field-label">ID</div>
