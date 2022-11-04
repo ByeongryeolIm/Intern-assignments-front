@@ -5,20 +5,12 @@ export const navigation = [
     icon: 'home'
   },
   {
-    text: 'Examples',
+    text: 'Movie',
     icon: 'folder',
     items: [
       {
-        text: 'Profile',
+        text: '내 정보',
         path: '/profile'
-      },
-      {
-        text: 'Tasks',
-        path: '/tasks'
-      },
-      {
-        text: '직원 관리',
-        path: '/employee'
       },
       {
         text: '영화 목록',

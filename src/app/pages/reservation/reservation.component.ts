@@ -53,11 +53,11 @@ export class ReservationComponent {
       if (dialogResult) {
         this.movieService.reserveCancel(this.getSelectedReserveId()).subscribe({
           next: (v) => {
-            notify('예매 내역 삭제 성공', 'success', 2000);
+            notify('예매 취소', 'success', 2000);
             this.search();
           },
           error: (e) => {
-            notify('예매 내역 삭제 실패','error',2000)
+            notify('예매 취소 실패','error',2000)
           }
         });
       }

@@ -24,12 +24,12 @@
     [hoverStateEnabled]="true"
     [selectedRowKeys]="[]"
   >
-    <dxi-column dataField="id" dataType="number" caption="ID" [width]="200"></dxi-column>
+    <dxi-column dataField="id" dataType="number" caption="ID" [width]="50"></dxi-column>
     <dxi-column dataField="movie.subject" dataType="string" caption="영화이름" [width]="600"></dxi-column>
-    <dxi-column dataField="cinema" dataType="string" caption="영화관" [width]="200"></dxi-column>
-    <dxi-column dataField="seat" dataType="string" caption="좌석" [width]="200"></dxi-column>
-    <dxi-column dataField="viewTime" dataType="string" caption="관람시간" [width]="200"></dxi-column>
-    <dxi-column dataField="viewDate" dataType="date" caption="관람날짜" [format]="{ type: 'yyyy-MM-dd' }" [width]="400"></dxi-column>
+    <dxi-column dataField="cinema" dataType="string" caption="영화관"></dxi-column>
+    <dxi-column dataField="seat" dataType="string" caption="좌석"></dxi-column>
+    <dxi-column dataField="viewTime" dataType="string" caption="관람시간"></dxi-column>
+    <dxi-column dataField="viewDate" dataType="date" caption="관람날짜" [format]="{ type: 'yyyy-MM-dd' }"></dxi-column>
     <dxo-selection mode="single"></dxo-selection>
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager

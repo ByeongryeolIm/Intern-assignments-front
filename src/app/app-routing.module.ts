@@ -9,27 +9,14 @@ import {
 import {AuthGuardService} from './shared/services';
 import {HomeComponent} from './pages/home/home.component';
 import {ProfileComponent} from './pages/profile/profile.component';
-import {TasksComponent} from './pages/tasks/tasks.component';
 import {DevExtremeModule} from 'devextreme-angular';
-import {EmployeeComponent} from "./pages/employee/employee.component";
 import {CommonModule} from "@angular/common";
-import {EmployeeEditComponent} from "./pages/employee/edit/employee-edit.component";
 import {MovieComponent} from "./pages/movie/movie.component";
 import {MovieEditComponent} from "./pages/movie/edit/movie-edit.component";
 import {ReservationEditComponent} from "./pages/movie/edit/reservation-edit.component";
 import {ReservationComponent} from "./pages/reservation/reservation.component";
 
 const routes: Routes = [
-  {
-    path: 'employee',
-    component: EmployeeComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
-    path: 'tasks',
-    component: TasksComponent,
-    canActivate: [ AuthGuardService ]
-  },
   {
     path: 'profile',
     component: ProfileComponent,
@@ -83,9 +70,6 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     ProfileComponent,
-    TasksComponent,
-    EmployeeComponent,
-    EmployeeEditComponent,
     MovieComponent,
     MovieEditComponent,
     ReservationEditComponent,
