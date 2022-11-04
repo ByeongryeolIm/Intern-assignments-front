@@ -82,6 +82,7 @@ export class MovieEditComponent {
       });
     }
   }
+
   cancel = () => {
     this.popupVisible = false;
   }

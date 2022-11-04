@@ -13,7 +13,9 @@ export interface Reservation {
   id: number;
   cinema: string;
   seat: string;
+  viewTime: string | number;
   viewDate: string | number | Date;
+  movie: Movie;
 }
 
 const URL = '/dna/practice/movies';
@@ -52,5 +54,8 @@ export class MovieService {
     return this.http.get<any>(`${URL}/reserveList`,{params: params as any});
   }
 
+  reserveCancel(id: number): Observable<Reservation> {
+    return this.http.delete<any>(`${URL}/reserveCancel/${id}`);
+  }
 
 }

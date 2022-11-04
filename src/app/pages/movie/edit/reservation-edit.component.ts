@@ -15,6 +15,7 @@ export class ReservationEditComponent {
   popupVisible = false;
   theaters = [{code: 'CGV', text: 'CGV'},{code: 'MEGA BOX', text: 'MEGA BOX'},{code: 'LOTTE CINEMA', text: 'LOTTE CINEMA'}];
   seats = [{code: 'a1', text: 'a1'},{code: 'a2', text: 'a2'},{code: 'a3', text: 'a3'}]
+  times = [{code: '10:00', text: '10:00'},{code: '13:00', text: '13:00'},{code: '16:00', text: '16:00'}]
 
 
   @Output() onSaved = new EventEmitter<Reservation>();
@@ -44,10 +45,7 @@ export class ReservationEditComponent {
     if (!result.isValid) {
       return;
     }
-    console.log("id"+this.reservation.id);
-    console.log(this.reservation.seat);
-    console.log(this.reservation.cinema);
-    console.log(this.reservation.viewDate);
+    this.reservation.movie = this.movie;
     this.movieService.reserve(this.reservation).subscribe({
       next: (v) => {
         notify('영화 예매가 완료되었습니다.','success', 2000);

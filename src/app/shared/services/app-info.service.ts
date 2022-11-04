@@ -5,7 +5,7 @@ export class AppInfoService {
   constructor() {}
 
   public get title() {
-    return 'DnA Frontend Skeleton';
+    return '영화예매시스템';
   }
 
   public get currentYear() {

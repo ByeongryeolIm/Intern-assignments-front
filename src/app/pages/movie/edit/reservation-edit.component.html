@@ -1,6 +1,6 @@
 <dx-popup
-  [width]="500"
-  [height]="460"
+  [width]="600"
+  [height]="500"
   [showTitle]="true"
   [title]="'영화 예매'"
   [dragEnabled]="false"
@@ -48,6 +48,14 @@
         </div>
 
         <div class="dx-field">
+          <div class="dx-field-label">관람시간</div>
+          <dx-select-box class="dx-field-value"
+                         name="seat"
+                         [items]="times" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.viewTime"
+          ></dx-select-box>
+        </div>
+
+        <div class="dx-field">
           <div class="dx-field-label">좌석</div>
           <dx-select-box class="dx-field-value"
                          name="seat"
@@ -59,8 +67,7 @@
           <div class="dx-field-label">관람날짜</div>
           <dx-date-box class="dx-field-value" name="viewDate"
                        displayFormat="yyyy-MM-dd" invalidDateMessage="날짜를 올바른 형식으로 입력하세요: yyyy-MM-dd" [(value)]="reservation.viewDate">
-            <dx-validator>
-            </dx-validator>
+
           </dx-date-box>
         </div>
 
