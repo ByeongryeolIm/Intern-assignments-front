@@ -48,6 +48,14 @@
         </div>
 
         <div class="dx-field">
+          <div class="dx-field-label">관람날짜</div>
+          <dx-date-box class="dx-field-value" name="viewDate"
+                       displayFormat="yyyy-MM-dd" invalidDateMessage="날짜를 올바른 형식으로 입력하세요: yyyy-MM-dd" [(value)]="reservation.viewDate">
+
+          </dx-date-box>
+        </div>
+
+        <div class="dx-field">
           <div class="dx-field-label">관람시간</div>
           <dx-select-box class="dx-field-value"
                          name="seat"
@@ -61,14 +69,6 @@
                          name="seat"
                          [items]="seats" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.seat"
           ></dx-select-box>
-        </div>
-
-        <div class="dx-field">
-          <div class="dx-field-label">관람날짜</div>
-          <dx-date-box class="dx-field-value" name="viewDate"
-                       displayFormat="yyyy-MM-dd" invalidDateMessage="날짜를 올바른 형식으로 입력하세요: yyyy-MM-dd" [(value)]="reservation.viewDate">
-
-          </dx-date-box>
         </div>
 
         <dx-validation-summary></dx-validation-summary>

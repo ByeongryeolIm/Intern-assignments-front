@@ -14,8 +14,10 @@ export class ReservationEditComponent {
   movie: Movie;
   popupVisible = false;
   theaters = [{code: 'CGV', text: 'CGV'},{code: 'MEGA BOX', text: 'MEGA BOX'},{code: 'LOTTE CINEMA', text: 'LOTTE CINEMA'}];
-  seats = [{code: 'a1', text: 'a1'},{code: 'a2', text: 'a2'},{code: 'a3', text: 'a3'}]
-  times = [{code: '10:00', text: '10:00'},{code: '13:00', text: '13:00'},{code: '16:00', text: '16:00'}]
+  seats = [{code: 'a1', text: 'a1'},{code: 'a2', text: 'a2'},{code: 'a3', text: 'a3'},{code: 'b1', text: 'b1'},
+    {code: 'b2', text: 'b2'},{code: 'b3', text: 'b3'},{code: 'c1', text: 'c1'},{code: 'c2', text: 'c2'},{code: 'c3', text: 'c3'},
+    {code: 'd1', text: 'd1'},{code: 'd2', text: 'd2'},{code: 'd3', text: 'd3'}]
+  times = [{code: '10:00', text: '10:00'},{code: '13:00', text: '13:00'},{code: '16:00', text: '16:00'},{code: '19:00', text: '19:00'},{code: '22:00', text: '22:00'}]
 
 
   @Output() onSaved = new EventEmitter<Reservation>();
