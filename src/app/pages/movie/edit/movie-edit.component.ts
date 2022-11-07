@@ -37,7 +37,6 @@ export class MovieEditComponent {
       this.movie = {} as Movie;
       this.popupVisible = true;
     }
-
   }
 
   close() {

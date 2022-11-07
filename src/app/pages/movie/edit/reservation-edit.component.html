@@ -1,6 +1,6 @@
 <dx-popup
-  [width]="600"
-  [height]="500"
+  [width]="700"
+  [height]="600"
   [showTitle]="true"
   [title]="'영화 예매'"
   [dragEnabled]="false"
@@ -43,15 +43,20 @@
           <div class="dx-field-label">영화관</div>
           <dx-select-box class="dx-field-value"
                          name="cinema"
-                         [items]="theaters" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.cinema"
-          ></dx-select-box>
+                         [items]="theaters" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.cinema">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="영화관을 선택하세요."></dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
         </div>
 
         <div class="dx-field">
           <div class="dx-field-label">관람날짜</div>
           <dx-date-box class="dx-field-value" name="viewDate"
                        displayFormat="yyyy-MM-dd" invalidDateMessage="날짜를 올바른 형식으로 입력하세요: yyyy-MM-dd" [(value)]="reservation.viewDate">
-
+            <dx-validator>
+              <dxi-validation-rule type="required" message="날짜를 선택하세요."></dxi-validation-rule>
+            </dx-validator>
           </dx-date-box>
         </div>
 
@@ -59,16 +64,22 @@
           <div class="dx-field-label">관람시간</div>
           <dx-select-box class="dx-field-value"
                          name="seat"
-                         [items]="times" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.viewTime"
-          ></dx-select-box>
+                         [items]="times" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.viewTime">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="관람시간을 선택하세요."></dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
         </div>
 
         <div class="dx-field">
           <div class="dx-field-label">좌석</div>
           <dx-select-box class="dx-field-value"
                          name="seat"
-                         [items]="seats" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.seat"
-          ></dx-select-box>
+                         [items]="seats" [searchEnabled]="true" valueExpr="code" displayExpr="text" [(value)]="reservation.seat">
+            <dx-validator>
+              <dxi-validation-rule type="required" message="좌석을 선택하세요."></dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
         </div>
 
         <dx-validation-summary></dx-validation-summary>
